@@ -1,0 +1,13 @@
+{
+	"name": "literati-example",
+	"version": "1.0.0",
+	"description": "",
+	"author": "Literati",
+	"license": "",
+	"scripts": {
+		"build": "wp-scripts build --webpack-src-dir=blocks/carousel/src/ --output-path=blocks/carousel/build/"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^27.6.0"
+	}
+}
