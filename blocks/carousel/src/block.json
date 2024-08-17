@@ -8,6 +8,16 @@
 	"icon": "smiley",
 	"description": "Example carousel block",
 	"example": {},
+  "attributes": {
+    "transition_timer": {
+      "type": "number",
+      "default": 3000
+    },
+    "promotions": {
+      "type": "array",
+      "default": []
+    }
+  },
 	"supports": {
 		"html": false
 	},

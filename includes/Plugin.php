@@ -3,6 +3,7 @@
 namespace Literati\Example;
 
 use Literati\Example\Blocks;
+use Literati\Example\Meta;
 
 /**
  * Main plugin class.
@@ -114,8 +115,9 @@ class Plugin {
    */
   public function initialize_plugin() {
     $this->define_constants();
-
     $this->includes();
+    add_action('init', array($this, 'create_promotion_post_type'));
+    new Meta();
   }
 
   /**
@@ -134,6 +136,40 @@ class Plugin {
    */
   public function includes() {
     Blocks::init();
+  }
+
+  public function create_promotion_post_type() {
+      $labels = array(
+          'name'               => __( 'Promotions' ),
+          'singular_name'      => __( 'Promotion' ),
+          'add_new'            => __( 'Add New Promotion' ),
+          'add_new_item'       => __( 'Add New Promotion' ),
+          'edit_item'          => __( 'Edit Promotion' ),
+          'new_item'           => __( 'New Promotion' ),
+          'view_item'          => __( 'View Promotion' ),
+          'search_items'       => __( 'Search Promotions' ),
+          'not_found'          => __( 'No Promotions found' ),
+          'not_found_in_trash' => __( 'No Promotions found in Trash' ),
+          'menu_name'          => __( 'Promotions' ),
+      );
+
+      $args = array(
+          'labels'             => $labels,
+          'public'             => true,
+          'publicly_queryable' => true,
+          'show_ui'            => true,
+          'show_in_menu'       => true,
+          'show_in_rest'       => true,
+          'query_var'          => true,
+          'rewrite'            => array( 'slug' => 'promotion' ),
+          'capability_type'    => 'post',
+          'has_archive'        => true,
+          'hierarchical'       => false,
+          'menu_position'      => null,
+          'supports'           => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
+      );
+
+      register_post_type( 'promotion', $args );
   }
 
   /**

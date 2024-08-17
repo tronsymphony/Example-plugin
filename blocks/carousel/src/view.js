@@ -21,5 +21,54 @@
  */
 
 /* eslint-disable no-console */
-console.log( 'Hello World! (from create-block-literati-example-carousel block)' );
+console.log('Hello World! (from create-block-literati-example-carousel block)');
 /* eslint-enable no-console */
+
+import Swiper from 'swiper/bundle';
+
+import 'swiper/css/bundle';
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.wp-block-literati-example-carousel');
+  if (container) {
+
+    const transitionTimerValue = container.getAttribute('data-transition-timer');
+
+
+    const swiper = new Swiper('.swiper-container', {
+      loop: true,
+      autoplay: {
+        delay: transitionTimerValue,
+        disableOnInteraction: true,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      slidesPerView: 'auto',
+      centeredSlides: true,
+      loop: true,
+      slidesPerGroup: 1,
+      initialSlide: 2,
+
+      paginationClickable: true,
+      spaceBetween: 0,
+      breakpoints: {
+        640: {
+          slidesPerView: 1.5,
+        },
+        768: {
+          slidesPerView: 'auto',
+        },
+        1024: {
+          slidesPerView: 'auto',
+        }
+      },
+    });
+
+  }
+
+});

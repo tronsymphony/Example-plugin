@@ -6,7 +6,132 @@
  */
 
 .wp-block-literati-example-carousel {
-	background-color: #21759b;
+	background-color: #E2DAF4;
 	color: #fff;
-	padding: 2px;
+	padding: 30px 0;
+	overflow: hidden;
+	position: relative;
+	padding-bottom: 80px;
+
+	.wp-block-literati-example-carousel-block {
+		display: flex;
+		justify-content: center
+	}
+
+	.swiper-navigation-component {
+		position: absolute;
+		bottom: 0px;
+		left: 0;
+		right: 0;
+		background: #250D59;
+		top: auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-direction: row-reverse;
+		padding: 10px 30px;
+
+		svg {
+			max-height: 20px;
+		}
+
+		.swiper-button-prev,
+		.swiper-button-next{
+			&::after{
+				display: none;
+			}
+			&:hover{
+				transform: scale(.8);
+			}
+		}
+	}
+
+	.swiper-slide {
+		width: 40%;
+		min-width: 300px;
+		background-color: #eee;
+		display: flex;
+		border-radius: 30px;
+		overflow: hidden;
+		transition: opacity, transform .6s;
+
+		@media screen and (max-width:993px) {
+			flex-direction: column;
+			width: 90%;
+		}
+
+
+		&.swiper-slide-next,
+		&.swiper-slide-prev {
+			opacity: .5;
+			transform: scale(.8);
+		}
+
+		.promotion-slide-image {
+			margin: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 50%;
+			@media screen and (max-width:993px) {
+				width: 100%;
+			}
+
+			img {
+				min-height: 440px;
+				object-fit: cover;
+				object-position: center;
+				width: 100%;
+			}
+		}
+
+		.promotion-content-block {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: center;
+			padding: 20px 36px;
+			width: 50%;
+			@media screen and (max-width:993px) {
+				width: 100%;
+			}
+		}
+
+		.promotion-content-block_title {
+			font-size: 40px;
+			color: #58CDC9;
+			font-weight: bold;
+			margin: 0 0 1rem;
+			line-height: 1;
+		}
+
+		.promotion-content-block-info {
+			font-size: 18px;
+			line-height: 150%;
+			color: #000000;
+			margin-bottom: 1rem;
+
+		}
+
+		.promotion-content-block-button {
+			a {
+				background-color: #58CDC9;
+				padding: 5px 20px;
+				font-size: 16px;
+				font-weight: bold;
+				// min-width: 156px;
+				min-height: 54px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: #fff;
+				text-decoration: none;
+				&:hover{
+					background-color: #250d59;
+					color: #fff;
+				}
+			}
+		}
+	}
+
 }

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "literati-example/carousel",
+  "version": "1.0.0",
+  "title": "Carousel Block",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Example carousel block",
+  "example": {},
+  "attributes": {
+    "transition_timer": {
+      "type": "number",
+      "default": 3000
+    },
+    "promotions": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "literati-example-carousel",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}
