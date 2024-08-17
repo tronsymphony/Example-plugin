@@ -11,6 +11,6 @@
 		"@wordpress/scripts": "^27.6.0"
 	},
 	"dependencies": {
-		"react-multi-carousel": "^2.8.5"
+"swiper": "^11.1.9"
 	}
 }

@@ -47,4 +47,18 @@ final class PluginTest extends TestCase {
     $this->assertSame($plugin->get_plugin_version(), '1.0.0');
     $this->assertSame($plugin->is_plugin_initialized(), true);
   }
+
+  public function test_create_promotion_post_type()
+  {
+      $plugin = Plugin::instance();
+      $plugin->create_promotion_post_type();
+
+      $this->assertTrue(post_type_exists('promotion'));
+
+      $postTypeObject = get_post_type_object('promotion');
+      $this->assertEquals('Promotions', $postTypeObject->labels->name);
+      $this->assertTrue($postTypeObject->public);
+      $this->assertTrue($postTypeObject->show_ui);
+      $this->assertTrue($postTypeObject->show_in_rest);
+  }
 }
